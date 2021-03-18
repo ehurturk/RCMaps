@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, ImageBackground, Button, TextInput, CheckBox } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, CheckBox } from 'react-native';
+
 
 export default function App() {
 
   const [isSelected, setSelection] = useState(false);
+  const [numTimes, setTimes] = useState(0);
 
   return (
     <View style={styles.container}>
@@ -34,9 +36,14 @@ export default function App() {
       </View>
       
       
-      <Text>Is CheckBox selected: {isSelected ? "OW YE" : "O NO"}</Text>
+      <Text>{isSelected ? "OW YE" : "O NO"}</Text>
+      <Button 
+      onPress={() => setTimes(numTimes+1)}
+      title = "LOG IN"
+      />
       
-      
+      <Text>You pressed the button {numTimes} times!</Text>
+
       <StatusBar style="auto" />
     </View>
 
