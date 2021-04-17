@@ -8,6 +8,16 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.text}>
             <Text>This is the home screen bruh</Text>
             <Button
+                color="#7C0C1D"
+                onPress={() => navigation.navigate("Login")}
+                title="Log in with existing account"
+            />
+            <Button
+                color="#7C0C1D"
+                onPress={() => navigation.navigate("Register")}
+                title="Don't have an account? Create one"
+            />
+            <Button
                 
                 title="Go Back"
                 onPress={() => navigation.goBack()}

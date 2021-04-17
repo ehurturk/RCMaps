@@ -8,13 +8,31 @@ import {
     ImageBackground,} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button } from "react-native-elements";
+import { db, auth } from "../firebase";
 // import { Icon } from "react-native-vector-icons/FontAwesome";
-
 
 
 const LoginScreen = ({ navigation }) => {
     const [isSelected, setSelection] = useState(false);
-    const [numTimes, setTimes] = useState(0);
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const login = () => {
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(
+                (authUser) => {
+                    authUser.user.updateProfile({
+                        displayName: email,
+                        photoURL: "../user.png"
+                    });
+                    
+                    console.log(authUser.user);
+                }
+            )
+            .catch((e) => { alert(e) });
+    };
+    
     return (
         <View style={styles.text}>
             <ImageBackground
@@ -28,13 +46,15 @@ const LoginScreen = ({ navigation }) => {
                     <TextInput
                         style={styles.textInput}
                         placeholder="E-mail"
-                    ></TextInput>
+                        onChangeText={(context)=>setEmail(context)}
+                    />
 
                     <Text>Password: </Text>
                     <TextInput
                         style={styles.textInput}
                         secureTextEntry={true}
                         placeholder="Password"
+                        onChangeText={(content)=>setPassword(content)}
                     />
                 </View>
                 <View style={styles.checkboxContainer}>
@@ -47,12 +67,10 @@ const LoginScreen = ({ navigation }) => {
                 </View>
                 <Button
                     color="#7C0C1D"
-                    onPress={() => setTimes(numTimes + 1)}
+                    onPress={() => login()}
                     title="LOG IN"
                 />
-                <Text style={styles.text}>
-                    You pressed the button {numTimes} times!
-              </Text>
+
                 <StatusBar style="auto" />
             </ImageBackground>
             <Button
