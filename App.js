@@ -1,76 +1,42 @@
+//#region IMPORTS
+
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  CheckBox,
-  ImageBackground,
-} from "react-native";
+import React from "react";
+import LoginScreen from "./screens/LoginScreen";
 
-const Stack = createStackNavigator();
+import { StyleSheet } from "react-native";
+import HomeScreen from "./screens/HomeScreen";
+
+//#endregion
+
+
+const Stack = createStackNavigator(); // holds all the screens (as a Stack data structures)
+
+const globalScreenArgs = {
+  headerStyle: { backgroundColor: "#2C6BED" },
+  headerTiltStyle: { color: "white" },
+  headerTintColor: "white"
+}; // the global screen argument object which configures all screens
 
 export default function App() {
-  const [isSelected, setSelection] = useState(false);
-  const [numTimes, setTimes] = useState(0);
-  const logInScreen = () => {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="LogIn" component={LogInScreen}>
-            {/* //Burayı çözemedim */}
-            <ImageBackground
-              source={require("./RobertCollegeGouldHall1.jpg")}
-              style={styles.backgroundImage}
-            >
-              <Text>RC Maps</Text>
-              <Text>LOGIN PAGE</Text>
-              <View style={styles.inputArea}>
-                <Text>Email: </Text>
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="E-mail"
-                ></TextInput>
 
-                <Text>Password: </Text>
-                <TextInput
-                  style={styles.textInput}
-                  secureTextEntry={true}
-                  placeholder="Password"
-                />
-              </View>
-              <View style={styles.checkboxContainer}>
-                <CheckBox
-                  value={isSelected}
-                  onValueChange={setSelection}
-                  style={styles.checkbox}
-                />
-                <Text style={styles.label}>Remember me</Text>
-              </View>
-              <Button
-                color="#7C0C1D"
-                onPress={() => setTimes(numTimes + 1)}
-                title="LOG IN"
-              />
-              <Text style={styles.text}>
-                You pressed the button {numTimes} times!
-              </Text>
-              <StatusBar style="auto" />
-            </ImageBackground>
-          </Stack.Screen>
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  };
-  logInScreen();
+  //#region DECLERATIONS!!!
+
+  //#endregion
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={globalScreenArgs}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
+//#region CSS!!!
 const styles = StyleSheet.create({
   // container: {
   //   flex: 1,
@@ -105,3 +71,5 @@ const styles = StyleSheet.create({
 
   inputArea: {},
 });
+
+//#endregion
