@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import {Text, View, TextInput, TouchableOpacity } from 'react-native'
+import {Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 import { firebase } from "../firebase/config"
 
 import styles from "../../styles/RegisterScreen/styles";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
+// import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
     
     
 export default function RegisterScreen({navigation}) {
@@ -32,10 +32,8 @@ export default function RegisterScreen({navigation}) {
         navigation.navigate('Login')
     }
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
 
-            <KeyboardAwareScrollView
-                keyboardShouldPersistTaps="always">
                
                 <TextInput
                     style={styles.input}
@@ -67,13 +65,12 @@ export default function RegisterScreen({navigation}) {
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
                 </View>
-            </KeyboardAwareScrollView>
             {/* <Button
                 title="Go Home"
                 onPress={() => navigation.navigate("Home")}
             /> */}
 
-        </View>
+        </KeyboardAvoidingView>
     );
 
 }

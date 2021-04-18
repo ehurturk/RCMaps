@@ -3,7 +3,7 @@ import {
     View,
     Text,
     TextInput,
-    TouchableOpacity} from "react-native";
+    TouchableOpacity, KeyboardAvoidingView} from "react-native";
 
 
 import { firebase } from "../firebase/config"
@@ -32,11 +32,9 @@ const LoginScreen = ({ navigation }) => {
     }
     
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
 
-            <KeyboardAwareScrollView
 
-                keyboardShouldPersistTaps="always">
 
                 <TextInput
                     style={styles.input}
@@ -69,7 +67,7 @@ const LoginScreen = ({ navigation }) => {
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
                 </View>
-            </KeyboardAwareScrollView>
+=
             {/* <Button
                 color="#7C0C1D"
                 onPress={() => login()}
@@ -81,7 +79,7 @@ const LoginScreen = ({ navigation }) => {
                 title="Go Home"
                 onPress={()=>navigation.navigate("Home")}
             /> */}
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 
