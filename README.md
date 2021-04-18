@@ -13,7 +13,7 @@ This is a project that aims to create a student portal-like native mobile applic
 
 To install the dependencies, just run the `setup.sh` file.
 
-If you encounter any problem, just open the `setup.sh` file
+If you encounter any problem, just open the `setup.sh` file, and copy the text in it and paste it into your terminal and execute them.
 
 Thanks for being interested in, we are always welcome to any pull requests.
 
