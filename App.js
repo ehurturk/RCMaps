@@ -32,8 +32,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenArgs}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen options={ {headerShown: false}} name="Home" component={HomeScreen} />
+        <Stack.Screen options={ {headerShown: false}} name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Landing" component={Landing}/>
 
