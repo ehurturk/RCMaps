@@ -4,11 +4,10 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import LoginScreen from "./screens/LoginScreen";
-
-import { StyleSheet } from "react-native";
-import HomeScreen from "./screens/HomeScreen";
-import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import HomeScreen from "./src/screens/HomeScreen";
+import RegisterScreen from "./src/screens/RegisterScreen";
+import Landing from "./src/screens/Landing";
 
 //#endregion
 
@@ -16,7 +15,10 @@ import RegisterScreen from "./screens/RegisterScreen";
 const Stack = createStackNavigator(); // holds all the screens (as a Stack data structures)
 
 const globalScreenArgs = {
-  headerStyle: { backgroundColor: "#2C6BED" },
+  headerStyle: {
+    backgroundColor: "#2C6BED",
+    justifyContent: 'center',
+  },
   headerTiltStyle: { color: "white" },
   headerTintColor: "white"
 }; // the global screen argument object which configures all screens
@@ -31,8 +33,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenArgs}>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen}/>
+        <Stack.Screen name="Landing" component={Landing}/>
+
         
       </Stack.Navigator>
     </NavigationContainer>
