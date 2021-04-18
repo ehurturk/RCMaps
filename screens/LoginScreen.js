@@ -8,9 +8,9 @@ import {
     ImageBackground,} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button } from "react-native-elements";
-import { db, auth } from "../firebase";
+import firebase, { db, auth } from "../firebase";
 // import { Icon } from "react-native-vector-icons/FontAwesome";
-
+// import * as firebase from "firebase"
 
 const LoginScreen = ({ navigation }) => {
     const [isSelected, setSelection] = useState(false);
@@ -19,18 +19,9 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = useState("");
     
     const login = () => {
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(
-                (authUser) => {
-                    authUser.user.updateProfile({
-                        displayName: email,
-                        photoURL: "../user.png"
-                    });
-                    
-                    console.log(authUser.user);
-                }
-            )
-            .catch((e) => { alert(e) });
+        auth.signInWithEmailAndPassword(email, password).then(() => {
+            navigation.navigate("Home");
+        }).catch((e)=>alert(e));
     };
     
     return (

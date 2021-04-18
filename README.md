@@ -9,5 +9,11 @@ This is a project that aims to create a student portal-like native mobile applic
 - Onurcan Yildiz (Busieness)
 - Arda Turkmen (Graphics)
 
+## Installing the Dependencies (TESTING PURPOSES)
+
+To install the dependencies, just run the `setup.sh` file.
+
+If you encounter any problem, just open the `setup.sh` file
+
 Thanks for being interested in, we are always welcome to any pull requests.
 
