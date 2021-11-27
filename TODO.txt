@@ -1,0 +1,11 @@
+1) LOGIN SCREEN:
+  - 1) Student Login (which has the option to join & see all the events)
+  - 2) Staff Login (which has the option to create new events)
+
+2) ISS Call Button
+
+3) Student Lost Item SCREEN
+
+4) Events:
+- To fetch all events, use database from firebase. Once the staff enters new event, the client (which is the student login) can be eligible to see the newly created event.
+

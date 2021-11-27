@@ -1,19 +1,23 @@
 ## RC Maps
 
-This is a project that aims to create a student portal-like native mobile application, using React Native. This project has been created within the RC MIT Launch club, with 6 group members, who are:
+This is a project that aims to create a student portal-like native mobile application, using React Native. This project has been created within the RC MIT Launch club. This project is currently maintained by 2 people, who are:
 
-- Emir Hurturk (Developer)
-- Efe Ozbal (Developer)
-- Ege Ercihan (Graphics, UI)
-- Isik Eren Yildirim  (Graphics, UI)
-- Onurcan Yildiz (Busieness)
-- Arda Turkmen (Graphics)
+1) Emir Hurturk (me) - Lead Developer
+2) Efe Ozbal - Lead Developer
 
-## Installing the Dependencies (TESTING PURPOSES)
+Also, special thanks to the following group members who helped to create the design of the projects and contributed to the project overall:
+- Isik Eren Yildirim (Design)
+- Onur Can Yusuf (Business)
+- Arda Turkmen (Design)
 
-To install the dependencies, just run the `setup.sh` file.
-
-If you encounter any problem, just open the `setup.sh` file, and copy the text in it and paste it into your terminal and execute them.
+## Getting Started (RC Members only):
+To install and run the project (in the development mode), just type the following into your terminal:
+```bash
+git clone https://github.com/ehurturk/RCMaps.git
+cd RCMaps
+npm install
+expo start # Don't start the project on the web since react-native-maps doesn't work on web.
+```
 
 Thanks for being interested in, we are always welcome to any pull requests.
 

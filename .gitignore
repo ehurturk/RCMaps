@@ -12,3 +12,5 @@ web-build/
 firebase.js
 # macOS
 .DS_Store
+src/firebase/config.js
+
