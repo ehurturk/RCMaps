@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
 
   const login = () => {
     try {
-      firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+      firebase.auth().signInWithEmailAndPassword(email+"@robcol.k12.tr", password).then(() => {
         navigation.navigate("Landing");
       }).catch((e) => alert(e));
     } catch (error) {

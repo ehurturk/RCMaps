@@ -5,6 +5,7 @@ import { firebase, EventsDB } from "../firebase/config";
 
 export default function Map(props) {
   const [mapRef, setMapRef] = useState();
+  const [selected, setSelected] = useState(false);
   const initialMapRegion = {
     latitude: props.lat,
     longitude: props.long,
@@ -16,14 +17,14 @@ export default function Map(props) {
     
   useEffect(() => {
     const today = new Date();
-    EventsDB.where("date", ">=", today).onSnapshot((querySnapShot) => {
+    EventsDB.onSnapshot((querySnapShot) => {
       let n_events = [];
       querySnapShot.forEach((doc) => {
         n_events.push(doc.data())
       })
       setEvents(n_events);
     })
-  });
+  }, [events]);
 
   const setBoundingRegion = async () => {
     if (props.ne_lat === undefined || props.ne_long === undefined || props.sw_lat === undefined || props.sw_long === undefined) {
@@ -43,6 +44,22 @@ export default function Map(props) {
 
   };
 
+  const openPopUp = () => {
+    /* Popup open logic */
+    alert("Yarrak acildi");
+  };
+
+  const closePopUp = () => {
+    alert("Yarrak kapandi");
+  }
+
+  const handlePopUp = () => {
+    if (selected)
+      openPopUp();
+    else
+      closePopUp();
+  };
+
   return (
     <MapView
       style={styles.map}
@@ -58,7 +75,9 @@ export default function Map(props) {
       mapType={"satellite"}
       provider={PROVIDER_GOOGLE}
     >
-      {events.map((mapData) => { return <MapView.Marker cordinate={{ latitude: mapData.latitude, longitude: mapData.longitude }} title={mapData.title} description={mapData.description} /> })}
+      {/* <MapView.Marker coordinate={{ latitude:41.067618, longitude: 29.034914 }} onPress={() => {setSelected(!selected); handlePopUp(); }}/> */}
+
+      {events.map((mapData) => { return <MapView.Marker key={mapData.title} coordinate={{ latitude: parseFloat(mapData.latitude), longitude: parseFloat(mapData.longitude) }} title={mapData.title} description={mapData.description}  /> })}
     </MapView>
   );
 }

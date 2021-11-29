@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native'
 import { firebase } from "../firebase/config"
 
 
@@ -9,7 +9,7 @@ export default function RegisterScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   const register = () => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email+"@robcol.k12.tr", password)
       .then(
         (authUser) => {
           authUser.user.updateProfile({
@@ -31,6 +31,8 @@ export default function RegisterScreen({ navigation }) {
   return (
 
     <View style={styles.container}>
+              <ImageBackground source={require("../../assets/RobertCollegeGouldHall1.png")} resizeMode={"cover"} style={styles.image}>
+
       <Text style={styles.logo}>Register</Text>
       <View style={styles.inputView} >
         <TextInput
@@ -54,6 +56,7 @@ export default function RegisterScreen({ navigation }) {
       <TouchableOpacity>
         <Text style={styles.loginText} onPress={onFooterLinkPress}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
       </TouchableOpacity>
+      </ImageBackground>
     </View>
 
 
@@ -64,8 +67,8 @@ export default function RegisterScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003f5c',
-    alignItems: 'center',
+    // backgroundColor: '#003f5c',
+    // alignItems: 'center',
     justifyContent: 'center',
   },
   logo: {
@@ -107,5 +110,10 @@ const styles = StyleSheet.create({
   footerLink: {
     fontWeight: "bold",
     color: "#fb5b5a"
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: 'center'
   }
 });
