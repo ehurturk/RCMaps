@@ -8,6 +8,9 @@ import LoginScreen from "./src/screens/LoginScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import RegisterScreen from "./src/screens/RegisterScreen";
 import Landing from "./src/screens/Landing";
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['Setting a timer']);
 
 //#endregion
 

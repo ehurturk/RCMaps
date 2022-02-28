@@ -31,7 +31,7 @@ import { firebase, EventsDB } from "../firebase/config";
   - All students have .NUMBER in their username.
 */
 
-export default function Map(props) {
+export default function GoogleMapView(props) {
   const [mapRef, setMapRef] = useState();
   const initialMapRegion = {
     latitude: props.lat,
@@ -51,6 +51,7 @@ export default function Map(props) {
       });
       setEvents(n_events);
     });
+   
   }, [events]);
 
   const setBoundingRegion = async () => {
@@ -116,6 +117,6 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    height: Dimensions.get("window").height -100,
   },
 });

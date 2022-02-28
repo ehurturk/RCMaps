@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapView, { UrlTile } from "react-native-maps";
-import Map from "../components/Map";
-
+import GoogleMapView from "../components/GoogleMapView";
+import SVGMapView from '../components/SVGMapView';
+import {SvgUri}  from "react-native-svg";
 
 export default function Landing() {
 
@@ -13,7 +13,13 @@ export default function Landing() {
   ];
   return (
     <View style={styles.container}>
-      <Map lat={_latitude} long={_longitude} ne_lat={ne_lat} ne_long={ne_long} sw_lat={sw_lat} sw_long={sw_long} />
+      {/* <GoogleMapView lat={_latitude} long={_longitude} ne_lat={ne_lat} ne_long={ne_long} sw_lat={sw_lat} sw_long={sw_long} /> */}
+      {/* <SVGMapView /> for some reason this shit doesnt work. */}
+      <SvgUri
+					width="100%"
+					height="100%"
+					uri="../components/katplani.svg"
+				/>
     </View>
 
   );

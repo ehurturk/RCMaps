@@ -1,3 +1,4 @@
+import { NativeBaseProvider, Center, Modal } from "native-base";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -8,7 +9,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { firebase } from "../firebase/config";
-
 const image = { uri: "https://reactjs.org/logo-og.png" };
 
 const HomeScreen = ({ navigation }) => {
@@ -77,6 +77,10 @@ const HomeScreen = ({ navigation }) => {
             </Text>
           </Text>
         </TouchableOpacity>
+         {/* <NativeBaseProvider>
+          <ModalOverlay/> 
+        </NativeBaseProvider>  */}
+        
       </ImageBackground>
     </View>
   );
